@@ -27,7 +27,7 @@ export function ReedSolomonDecoder(
 
   const that = new ErrorCorrectingAlgorithm(rsSyndrome, BLOCKS_ECC);
   const R = BLOCKS_ECC / 2;
-  while (that.r.coefficients.length >= R) if (that.calculate()) return true;
+  while (that.r.degree() >= R) if (that.calculate()) return true;
 
   if (that.t.constantCoefficient() === 0) return true;
 
